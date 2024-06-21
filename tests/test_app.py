@@ -40,3 +40,10 @@ def test_deve_atualizar_usuario_do_id_correto(client):
         'username': 'bob',
         'email': 'bob@example.com',
     }
+
+
+def test_deve_deletar_usuario_com_id_correto(client):
+    response = client.delete('/users/1')
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {'message': 'User deleted'}
