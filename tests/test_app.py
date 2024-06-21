@@ -24,3 +24,19 @@ def test_deve_retornar_todos_usuarios(client):
     assert response.json() == {
         'users': [{'id': 1, 'username': 'str', 'email': 'test@email.com'}]
     }
+
+
+def test_deve_atualizar_usuario_do_id_correto(client):
+    response = client.put(
+        '/users/1',
+        json={
+            'username': 'bob',
+            'email': 'bob@example.com',
+            'password': 'mynewpassword',
+        },
+    )
+    assert response.json() == {
+        'id': 1,
+        'username': 'bob',
+        'email': 'bob@example.com',
+    }
