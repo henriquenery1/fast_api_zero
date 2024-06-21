@@ -15,3 +15,12 @@ def test_deve_retornar_usuario_criado(client):
 
     assert response.status_code == HTTPStatus.CREATED
     assert response.json() == {'id': 1, 'username': 'str', 'email': 'test@email.com'}
+
+
+def test_deve_retornar_todos_usuarios(client):
+    response = client.get('/users')
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {
+        'users': [{'id': 1, 'username': 'str', 'email': 'test@email.com'}]
+    }
