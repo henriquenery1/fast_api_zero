@@ -20,4 +20,4 @@ def create_user(user: UserSchema):
     user_with_id = UserDB(**user.model_dump(), id=len(database) + 1)
     database.append(user_with_id)
 
-    return user
+    return user_with_id

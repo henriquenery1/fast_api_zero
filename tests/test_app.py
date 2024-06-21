@@ -14,4 +14,5 @@ def test_deve_retornar_usuario_criado(client):
     )
 
     assert response.status_code == HTTPStatus.CREATED
-    assert response.json() == {'username': 'str', 'email': 'test@email.com'}
+    assert response.json() == {'id': 1, 'username': 'str', 'email': 'test@email.com'}
+
